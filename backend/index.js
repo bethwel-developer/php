@@ -16,8 +16,6 @@ const connection= mysql.createConnection({
     database:"test"
 })
 
-
-
 //get all data from sql
 app.get('/', (req, res)=> {
     const sql = "SELECT * FROM users_table";
