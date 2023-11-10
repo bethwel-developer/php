@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate,Link } from 'react-router-dom';
 
-
 const Create = () => {
 
 const [values, setValues] = useState({
@@ -13,7 +12,6 @@ const [values, setValues] = useState({
 })
 
 const navigate = useNavigate();
-
 const handleSubmit = (e)=>{
     e.preventDefault();
     axios.post("http://localhost:8000/create", values)
@@ -22,10 +20,6 @@ const handleSubmit = (e)=>{
     })
     .catch(err=>console.log(err))
 }
-
-
-
-
 
   return (
     <div  className='mt-52 flex justify-center items-center '> 
@@ -36,8 +30,6 @@ const handleSubmit = (e)=>{
                 
             <h1 className=" text-2xl font-bold mb-6 ">CREATE USER</h1> 
              
-           
-
                 <div>
                     <input placeholder='Enter names' className="border-2 border-slate-300  pl-2 pr-28 mb-4 py-1.5" 
                     type="text" 
@@ -58,8 +50,6 @@ const handleSubmit = (e)=>{
                     onChange={e=> setValues({...values,age:e.target.value})}
                    />
                 </div>
-
-
                
                 <button className='mt-4 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800'
                 >Create user</button>
