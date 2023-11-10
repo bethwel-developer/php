@@ -13,7 +13,8 @@ const connection= mysql.createConnection({
     database:"test"
 })
 
-//get all data from sql
+//get all data from mysql
+
 app.get('/', (req, res)=> {
     const sql = "SELECT * FROM users_table";
     connection.query(sql, (err, data)=>{
@@ -23,7 +24,7 @@ app.get('/', (req, res)=> {
 });
 
 
-//read specific data
+//read specific data from the database
 
 app.get("/read/:id", (req, res)=>{
     const id = req.params.id;
@@ -34,7 +35,8 @@ app.get("/read/:id", (req, res)=>{
     });
 });
 
-//create 
+//create data to the database
+
 app.post("/create", (req,res)=>{
     const sql = "INSERT INTO users_table (`id`, `name`, `email`, `age`) VALUES(?)";
     const values =[
@@ -50,7 +52,8 @@ app.post("/create", (req,res)=>{
 })
 
 
-//upate
+//update data in the database
+
 app.put("/update/:id", (req,res)=>{
     const sql = "UPDATE users_table SET `name`=?, `email`=?,`age`=? WHERE  ID = ?";
     const id = req.params.id
